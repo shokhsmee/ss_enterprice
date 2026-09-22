@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-inherit="web.WebClient" t-inherit-mode="extension">
+        <xpath expr="//ActionContainer" position="before">
+            <t t-if="this.ssSidebarEnabled and !this.state.fullscreen"
+               t-component="this.ssSidebar"/>
+        </xpath>
+    </t>
+
+</templates>

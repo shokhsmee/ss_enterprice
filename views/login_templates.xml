@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        The login page keeps its own markup: we only drop two absolutely
+        positioned layers behind it (picture + veil), swap the classes of the
+        existing container so the card can be moved left / center / right, and
+        add the branding text.
+    -->
+    <template id="ss_login_layout" inherit_id="web.login_layout" name="SS Enterprise Login Layout">
+
+        <xpath expr="//div[hasclass('container')]" position="before">
+            <t t-set="ss_company" t-value="res_company.sudo()"/>
+            <t t-set="ss_background" t-value="ss_company.ss_login_background"/>
+            <!-- Feeds the flag the stock template already tests. -->
+            <t t-set="disable_database_manager"
+               t-value="disable_database_manager or ss_company.ss_login_hide_db_manager"/>
+            <t t-if="ss_background">
+                <div class="o_ss_login_bg"
+                     t-attf-style="background-image: url('/ss_enterprice/login_background?company={{ ss_company.id }}&amp;unique={{ ss_company._ss_asset_version() }}');"/>
+                <div t-if="ss_company.ss_login_overlay"
+                     class="o_ss_login_veil"
+                     t-attf-style="opacity: {{ ss_company.ss_login_overlay / 100.0 }};"/>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[hasclass('container')]" position="attributes">
+            <attribute name="t-attf-class">container py-5 o_ss_login_container o_ss_login_{{ ss_company.ss_login_position or 'center' }} {{ 'o_ss_login_has_bg' if ss_background else '' }}</attribute>
+        </xpath>
+
+        <!-- Tagline, inside the card under the logo. -->
+        <xpath expr="//t[@t-out='0']" position="before">
+            <div t-if="ss_company.ss_login_tagline"
+                 class="o_ss_login_tagline text-center text-muted small mb-3"
+                 t-out="ss_company.ss_login_tagline"/>
+        </xpath>
+
+        <!-- Note, under the card. `t-out` escapes it: this page is public.
+             The card carries its classes through `t-attf-class`, so `hasclass`
+             cannot see them: match on the literal instead. -->
+        <xpath expr="//div[contains(@t-attf-class, 'o_database_list')]" position="after">
+            <div t-if="ss_company.ss_login_note"
+                 class="o_ss_login_note text-center small mt-3"
+                 t-out="ss_company.ss_login_note"/>
+        </xpath>
+
+    </template>
+
+</odoo>

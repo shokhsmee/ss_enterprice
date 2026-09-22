@@ -1,0 +1,386 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ss_enterprice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-22 16:58+0000\n"
+"PO-Revision-Date: 2026-09-22 16:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ss_enterprice
+#: model:ir.module.module,description:base.module_ss_enterprice
+msgid ""
+"\n"
+"SS Enterprise\n"
+"=============\n"
+"\n"
+"A light UI layer for the Odoo 20 backend. It does not replace Odoo's own\n"
+"design: the navbar, the views and the login card keep their standard markup\n"
+"and styling. Everything here is added next to them, and every part can be\n"
+"switched off.\n"
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "<span class=\"text-muted ps-1\">%</span>"
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/sidebar/sidebar.xml:0
+msgid "Apps"
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "Background Overlay"
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "Background Picture"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields.selection,name:ss_enterprice.selection__res_company__ss_login_position__center
+msgid "Center"
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/sidebar/sidebar.js:0
+msgid "Collapse sidebar"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model,name:ss_enterprice.model_res_company
+msgid "Company"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model,name:ss_enterprice.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,field_description:ss_enterprice.field_ir_http__display_name
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_company__display_name
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_users_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid ""
+"Displayed on top of the sidebar. The company logo is used when this is "
+"empty."
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/sidebar/sidebar.xml:0
+msgid "Drag to resize, double-click to reset"
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/sidebar/sidebar.js:0
+msgid "Expand sidebar"
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "Expanded by Default"
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "Full-screen background of the login page."
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model,name:ss_enterprice.model_ir_http
+msgid "HTTP Routing"
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "Hide Database Manager"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_company__ss_login_hide_db_manager
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_config_settings__ss_login_hide_db_manager
+msgid "Hide Database Manager Link"
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/chatter/chatter_toggle.js:0
+msgid "Hide chatter"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,field_description:ss_enterprice.field_ir_http__id
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_company__id
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_config_settings__id
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_users_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields.selection,name:ss_enterprice.selection__res_company__ss_login_position__left
+msgid "Left"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_company__ss_sidebar_enabled
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_config_settings__ss_sidebar_enabled
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "Left Sidebar"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.module.module,summary:base.module_ss_enterprice
+msgid ""
+"Left sidebar with pinned menus and your logo, a chatter toggle on form "
+"views, and a login page you can brand"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_company__ss_login_background
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_config_settings__ss_login_background
+msgid "Login Background"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_company__ss_login_position
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_config_settings__ss_login_position
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "Login Form Position"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_company__ss_login_note
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_config_settings__ss_login_note
+msgid "Login Note"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_company__ss_login_overlay
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_config_settings__ss_login_overlay
+msgid "Login Overlay"
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "Login Page"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_company__ss_login_tagline
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_config_settings__ss_login_tagline
+msgid "Login Tagline"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_sidebar_logo
+#: model:ir.model.fields,help:ss_enterprice.field_res_config_settings__ss_sidebar_logo
+msgid ""
+"Logo displayed at the top of the sidebar. Falls back to the company logo "
+"when empty."
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,help:ss_enterprice.field_res_users_settings__ss_pinned_menus
+msgid "Menus pinned to the top of the SS Enterprise sidebar, in pin order."
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "Note Under the Card"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_login_overlay
+#: model:ir.model.fields,help:ss_enterprice.field_res_config_settings__ss_login_overlay
+msgid ""
+"Opacity (0-100) of the dark veil drawn over the background picture, to keep "
+"the login form readable."
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid ""
+"Opacity (0-100) of the dark veil drawn over the picture, to keep the login "
+"form readable."
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_login_background
+#: model:ir.model.fields,help:ss_enterprice.field_res_config_settings__ss_login_background
+msgid "Picture used as the full-screen background of the login page."
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/sidebar/sidebar.js:0
+msgid "Pin to the top"
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/sidebar/sidebar.xml:0
+msgid "Pinned"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_users_settings__ss_pinned_menus
+msgid "Pinned Menus"
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid ""
+"Plain text shown below the login card, e.g. a support address. HTML is not "
+"accepted: the page is public."
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_login_note
+#: model:ir.model.fields,help:ss_enterprice.field_res_config_settings__ss_login_note
+msgid ""
+"Plain text shown under the login card, e.g. a support address. Rendered "
+"escaped: the login page is served before anyone is authenticated, so no HTML"
+" is accepted here."
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_login_hide_db_manager
+#: model:ir.model.fields,help:ss_enterprice.field_res_config_settings__ss_login_hide_db_manager
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "Remove the 'Manage Databases' link from the login page."
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields.selection,name:ss_enterprice.selection__res_company__ss_login_position__right
+msgid "Right"
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "SS Enterprise"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.module.module,shortdesc:base.module_ss_enterprice
+msgid "SS Enterprise — Backend Sidebar, Chatter Toggle & Login Designer"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_login_tagline
+#: model:ir.model.fields,help:ss_enterprice.field_res_config_settings__ss_login_tagline
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "Short line shown inside the login card, under the logo."
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_sidebar_enabled
+#: model:ir.model.fields,help:ss_enterprice.field_res_config_settings__ss_sidebar_enabled
+msgid ""
+"Show a collapsible sidebar on the left of the backend, with the menus of the"
+" current app and the list of the other apps."
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid ""
+"Show a sidebar on the left with the menus of the current app and the other "
+"apps."
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/chatter/chatter_toggle.js:0
+msgid "Show chatter"
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "Sidebar"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_company__ss_sidebar_default_open
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_config_settings__ss_sidebar_default_open
+msgid "Sidebar Expanded by Default"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_company__ss_sidebar_logo
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_config_settings__ss_sidebar_logo
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "Sidebar Logo"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_sidebar_default_open
+#: model:ir.model.fields,help:ss_enterprice.field_res_config_settings__ss_sidebar_default_open
+msgid ""
+"State of the sidebar the first time a user loads the backend. Afterwards "
+"each user keeps their own choice."
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid ""
+"State of the sidebar the first time a user opens the backend. Each user then"
+" keeps their own choice."
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "Tagline"
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-python
+#: code:addons/ss_enterprice/models/res_company.py:0
+msgid "The login overlay must be between 0 and 100."
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/sidebar/sidebar.js:0
+#: code:addons/ss_enterprice/static/src/sidebar/sidebar.xml:0
+msgid "Unpin"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model,name:ss_enterprice.model_res_users_settings
+msgid "User Settings"
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "Where the login card sits on the page."
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "e.g. Need help? support@example.com"
+msgstr ""
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "e.g. Welcome back"
+msgstr ""

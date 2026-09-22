@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.ss.enterprice</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="SS Enterprise" string="SS Enterprise" name="ss_enterprice">
+
+                    <block title="Sidebar" name="ss_sidebar_block">
+                        <setting id="ss_sidebar_enabled_setting"
+                                 string="Left Sidebar"
+                                 help="Show a sidebar on the left with the menus of the current app and the other apps.">
+                            <field name="ss_sidebar_enabled"/>
+                        </setting>
+                        <setting id="ss_sidebar_default_open_setting"
+                                 string="Expanded by Default"
+                                 help="State of the sidebar the first time a user opens the backend. Each user then keeps their own choice."
+                                 invisible="not ss_sidebar_enabled">
+                            <field name="ss_sidebar_default_open"/>
+                        </setting>
+                        <setting id="ss_sidebar_logo_setting"
+                                 string="Sidebar Logo"
+                                 help="Displayed on top of the sidebar. The company logo is used when this is empty."
+                                 invisible="not ss_sidebar_enabled">
+                            <field name="ss_sidebar_logo" widget="image"
+                                   class="float-start me-3"
+                                   options="{'size': [0, 90]}"/>
+                        </setting>
+                    </block>
+
+                    <block title="Login Page" name="ss_login_block">
+                        <setting id="ss_login_background_setting"
+                                 string="Background Picture"
+                                 help="Full-screen background of the login page.">
+                            <field name="ss_login_background" widget="image"
+                                   class="float-start me-3"
+                                   options="{'size': [0, 120]}"/>
+                        </setting>
+                        <setting id="ss_login_position_setting"
+                                 string="Login Form Position"
+                                 help="Where the login card sits on the page.">
+                            <field name="ss_login_position" widget="radio" options="{'horizontal': true}"/>
+                        </setting>
+                        <setting id="ss_login_overlay_setting"
+                                 string="Background Overlay"
+                                 help="Opacity (0-100) of the dark veil drawn over the picture, to keep the login form readable."
+                                 invisible="not ss_login_background">
+                            <field name="ss_login_overlay" class="o_light_label" style="width: 5rem;"/>
+                            <span class="text-muted ps-1">%</span>
+                        </setting>
+                        <setting id="ss_login_tagline_setting"
+                                 string="Tagline"
+                                 help="Short line shown inside the login card, under the logo.">
+                            <field name="ss_login_tagline" placeholder="e.g. Welcome back"/>
+                        </setting>
+                        <setting id="ss_login_note_setting"
+                                 string="Note Under the Card"
+                                 help="Plain text shown below the login card, e.g. a support address. HTML is not accepted: the page is public.">
+                            <field name="ss_login_note" placeholder="e.g. Need help? support@example.com"/>
+                        </setting>
+                        <setting id="ss_login_hide_db_manager_setting"
+                                 string="Hide Database Manager"
+                                 help="Remove the 'Manage Databases' link from the login page.">
+                            <field name="ss_login_hide_db_manager"/>
+                        </setting>
+                    </block>
+
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

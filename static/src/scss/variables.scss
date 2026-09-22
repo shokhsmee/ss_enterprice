@@ -1,0 +1,5 @@
+// Shared geometry of the sidebar. Kept in one place so both the sidebar
+// itself and the web client offset stay in sync.
+$ss-sidebar-width: 240px !default;
+$ss-sidebar-width-collapsed: 56px !default;
+$ss-sidebar-zindex: 1035 !default; // under Bootstrap modals (1055)

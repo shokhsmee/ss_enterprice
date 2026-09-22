@@ -1,0 +1,111 @@
+// ============================================================================
+//  Login page — background picture, placement of the login card, branding text.
+//  Only additive: the card itself keeps Odoo's own design.
+// ============================================================================
+
+.o_ss_login_bg,
+.o_ss_login_veil {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.o_ss_login_bg {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.o_ss_login_veil {
+    background-color: #000;
+}
+
+.o_ss_login_container {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+
+    // A column, so the card and the note under it stack and stay aligned with
+    // each other. Vertical centring is `justify-content`; the horizontal
+    // placement below is done with auto margins on the cross axis.
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+// A flex item with an auto margin is sized to its content instead of being
+// stretched, which would shrink the card below the width it has in stock Odoo
+// (a block capped by its inline `max-width: 300px`). `width: 100%` restores it,
+// and giving the note the same box keeps the two left-aligned with each other.
+.o_ss_login_container > .card,
+.o_ss_login_container > .o_ss_login_note {
+    width: 100%;
+    max-width: 300px;
+}
+
+.o_ss_login_note {
+    color: $o-main-text-color;
+    white-space: pre-line; // honour the line breaks the user typed
+}
+
+// Placement. `!important` is required because the card carries Bootstrap's
+// `mx-auto` utility.
+.o_ss_login_container.o_ss_login_left {
+    > .card, > .o_ss_login_note {
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+}
+
+.o_ss_login_container.o_ss_login_right {
+    > .card, > .o_ss_login_note {
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+}
+
+.o_ss_login_container.o_ss_login_center {
+    > .card, > .o_ss_login_note {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+// With a picture behind it the container must be able to reach the viewport
+// edges, otherwise "left" and "right" stop at the Bootstrap container width.
+.o_ss_login_container.o_ss_login_has_bg {
+    max-width: none;
+    padding-left: 5vw;
+    padding-right: 5vw;
+
+    > .card {
+        box-shadow: 0 1rem 3rem rgba(#000, .25);
+    }
+
+    // The note sits directly on the picture, which may be light or dark, so it
+    // carries its own backdrop rather than relying on the veil.
+    > .o_ss_login_note {
+        padding: map-get($spacers, 2);
+        border-radius: $border-radius;
+        background-color: rgba(#000, .45);
+        color: $white;
+        text-shadow: 0 1px 2px rgba(#000, .6);
+    }
+}
+
+@media (max-width: 767.98px) {
+    // Never push the card against a screen edge on a phone.
+    .o_ss_login_container.o_ss_login_left,
+    .o_ss_login_container.o_ss_login_right {
+        > .card, > .o_ss_login_note {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+    }
+
+    .o_ss_login_container.o_ss_login_has_bg {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

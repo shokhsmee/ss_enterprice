@@ -1,0 +1,347 @@
+// ============================================================================
+//  Left sidebar
+//  Purely additive: the navbar and the views keep Odoo's own design, they are
+//  only shifted to the right by the width of the panel.
+// ============================================================================
+
+:root {
+    --ss-sidebar-width: #{$ss-sidebar-width};
+    --ss-sidebar-width-collapsed: #{$ss-sidebar-width-collapsed};
+}
+
+// --- Web client offset ------------------------------------------------------
+// The sidebar is fixed, so the body is padded instead of restructured.
+@include media-breakpoint-up(lg) {
+    .o_web_client.o_ss_has_sidebar {
+        padding-left: var(--ss-sidebar-width);
+
+        &.o_ss_sidebar_is_collapsed {
+            padding-left: var(--ss-sidebar-width-collapsed);
+        }
+    }
+}
+
+@include media-only(print) {
+    .o_web_client.o_ss_has_sidebar {
+        padding-left: 0;
+    }
+}
+
+// --- Panel ------------------------------------------------------------------
+.o_ss_sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: $ss-sidebar-zindex;
+    width: var(--ss-sidebar-width);
+    background-color: $o-view-background-color;
+    border-right: 1px solid $border-color;
+    color: $o-main-text-color;
+    overflow: hidden;
+
+    &.o_ss_sidebar_collapsed {
+        width: var(--ss-sidebar-width-collapsed);
+    }
+}
+
+// --- Logo -------------------------------------------------------------------
+.o_ss_sidebar_brand {
+    flex: 0 0 auto;
+    gap: map-get($spacers, 2);
+    padding: map-get($spacers, 2);
+    border-bottom: 1px solid $border-color;
+    min-height: 4rem;
+
+    .o_ss_sidebar_logo {
+        // A fixed box the logo is fitted into: whichever of the two
+        // dimensions runs out first caps it, so a banner uses the full
+        // width and a square mark the full height.
+        flex: 1 1 auto;
+        justify-content: flex-start;
+        min-width: 0;
+        height: 2.75rem;
+        color: inherit;
+
+        img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    .o_ss_sidebar_logo_initials {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        border-radius: $border-radius;
+        background-color: $o-brand-primary;
+        color: $white;
+        font-weight: $font-weight-bold;
+        font-size: .8rem;
+    }
+
+    .o_ss_sidebar_collapse {
+        flex: 0 0 auto;
+        color: $o-main-text-color;
+        opacity: .6;
+
+        &:hover, &:focus {
+            opacity: 1;
+            color: $o-main-text-color;
+        }
+    }
+}
+
+.o_ss_sidebar_collapsed .o_ss_sidebar_brand {
+    flex-direction: column;
+    gap: map-get($spacers, 1);
+    padding-left: map-get($spacers, 1);
+    padding-right: map-get($spacers, 1);
+
+    .o_ss_sidebar_logo {
+        justify-content: center;
+        width: 100%;
+        height: 2rem;
+    }
+}
+
+// --- Resize handle ----------------------------------------------------------
+.o_ss_sidebar_resizer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 5px;
+    cursor: col-resize;
+    background-color: transparent;
+    transition: background-color .15s ease-in-out;
+    z-index: 1;
+
+    &:hover {
+        background-color: $o-brand-primary;
+    }
+}
+
+// While dragging, keep the cursor and stop the page from selecting text.
+body.o_ss_sidebar_resizing {
+    cursor: col-resize;
+    user-select: none;
+
+    .o_ss_sidebar_resizer {
+        background-color: $o-brand-primary;
+    }
+}
+
+// --- Body -------------------------------------------------------------------
+.o_ss_sidebar_body {
+    // Hide the scrollbar until the pointer is over the panel, the way the
+    // rest of the web client does.
+    scrollbar-width: thin;
+    padding-bottom: map-get($spacers, 3);
+}
+
+.o_ss_sidebar_section + .o_ss_sidebar_section {
+    border-top: 1px solid $border-color;
+    margin-top: map-get($spacers, 2);
+    padding-top: map-get($spacers, 2);
+}
+
+.o_ss_sidebar_section_title {
+    padding: map-get($spacers, 2) map-get($spacers, 3) map-get($spacers, 1);
+    font-size: .6875rem;
+    font-weight: $font-weight-bold;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: $text-muted;
+}
+
+// --- App rows ---------------------------------------------------------------
+.o_ss_sidebar_app {
+    display: flex;
+    align-items: center;
+    gap: map-get($spacers, 2);
+    padding: map-get($spacers, 1) map-get($spacers, 2);
+    margin: 1px map-get($spacers, 2);
+    border-radius: $border-radius;
+    color: inherit;
+    text-decoration: none;
+    font-weight: $font-weight-normal;
+
+    &:hover, &:focus {
+        background-color: $o-gray-200;
+        color: inherit;
+    }
+
+    .o_ss_sidebar_label {
+        @include o-text-overflow;
+    }
+
+    .o_ss_sidebar_app_icon {
+        width: 1.5rem;
+        height: 1.5rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .oi {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+.o_ss_sidebar_app_current {
+    font-weight: $font-weight-bold;
+}
+
+.o_ss_sidebar_collapsed {
+    .o_ss_sidebar_label,
+    .o_ss_sidebar_section_title {
+        display: none;
+    }
+
+    .o_ss_sidebar_app {
+        justify-content: center;
+        margin-left: map-get($spacers, 1);
+        margin-right: map-get($spacers, 1);
+        padding-left: map-get($spacers, 1);
+        padding-right: map-get($spacers, 1);
+    }
+}
+
+// --- Menu entries -----------------------------------------------------------
+.o_ss_sidebar_menu {
+    margin-top: map-get($spacers, 1);
+}
+
+// A menu row: the entry itself plus the pin button that appears on hover.
+.o_ss_sidebar_row {
+    display: flex;
+    align-items: center;
+
+    > .o_ss_sidebar_entry {
+        flex: 1 1 auto;
+        min-width: 0;
+        margin-right: 0;
+    }
+
+    &:hover .o_ss_sidebar_pin,
+    .o_ss_sidebar_pin_on {
+        opacity: 1;
+    }
+}
+
+.o_ss_sidebar_pin {
+    flex: 0 0 auto;
+    padding: .25rem;
+    margin-right: map-get($spacers, 2);
+    border: 0;
+    border-radius: $border-radius;
+    background: none;
+    color: $text-muted;
+    opacity: 0;
+    transition: opacity .12s ease-in-out;
+
+    &:hover, &:focus-visible {
+        opacity: 1;
+        color: $o-brand-primary;
+        background-color: $o-gray-200;
+    }
+
+    .oi {
+        font-size: .85rem;
+    }
+}
+
+.o_ss_sidebar_pin_on {
+    color: $o-brand-primary;
+}
+
+.o_ss_sidebar_entry {
+    display: flex;
+    align-items: center;
+    gap: map-get($spacers, 1);
+    width: calc(100% - #{map-get($spacers, 2)} * 2);
+    margin: 0 map-get($spacers, 2);
+    padding: .25rem map-get($spacers, 2);
+    padding-left: calc(#{map-get($spacers, 2)} + var(--ss-sidebar-depth, 0) * .75rem + 1.25rem);
+    border: 0;
+    border-radius: $border-radius;
+    background: none;
+    text-align: start;
+    color: $o-main-text-color;
+    text-decoration: none;
+    font-size: .875rem;
+    @include o-text-overflow;
+
+    &:hover, &:focus {
+        background-color: $o-gray-200;
+        color: $o-main-text-color;
+    }
+}
+
+.o_ss_sidebar_entry_group {
+    // The caret takes the room reserved by the extra padding above.
+    padding-left: calc(#{map-get($spacers, 2)} + var(--ss-sidebar-depth, 0) * .75rem);
+    font-weight: $font-weight-bold;
+}
+
+.o_ss_sidebar_caret {
+    flex: 0 0 auto;
+    font-size: .9rem;
+    opacity: .6;
+}
+
+// --- Flyout (collapsed rail) -------------------------------------------------
+.o_ss_sidebar_flyout {
+    position: fixed;
+    top: var(--ss-sidebar-flyout-top, 0);
+    left: var(--ss-sidebar-width-collapsed);
+    z-index: 1036; // just above the panel, still under Bootstrap modals
+    width: 240px;
+    max-height: calc(100vh - var(--ss-sidebar-flyout-top, 0px) - #{map-get($spacers, 2)});
+    overflow-y: auto;
+    padding-bottom: map-get($spacers, 2);
+    background-color: $o-view-background-color;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+}
+
+.o_ss_sidebar_flyout_title {
+    display: block;
+    padding: map-get($spacers, 2);
+    margin-bottom: map-get($spacers, 1);
+    border-bottom: 1px solid $border-color;
+    color: $o-main-text-color;
+    font-weight: $font-weight-bold;
+    text-decoration: none;
+    @include o-text-overflow;
+
+    &:hover, &:focus {
+        color: $o-brand-primary;
+    }
+}
+
+.o_ss_sidebar_flyout_group {
+    padding: map-get($spacers, 1) map-get($spacers, 2);
+    padding-left: calc(#{map-get($spacers, 2)} + var(--ss-sidebar-depth, 0) * .75rem);
+    font-size: .75rem;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: $text-muted;
+}
+
+.o_ss_sidebar_entry_active {
+    background-color: $o-gray-200;
+    font-weight: $font-weight-bold;
+    box-shadow: inset 2px 0 0 $o-brand-primary;
+}

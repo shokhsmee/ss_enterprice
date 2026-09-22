@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="ss_enterprice.ChatterToggle">
+        <button type="button"
+                name="ss_chatter_toggle"
+                class="btn btn-secondary o_ss_chatter_toggle d-print-none"
+                t-att-class="{ 'active': !this.isHidden }"
+                t-att-title="this.label"
+                t-att-aria-pressed="this.isHidden ? 'false' : 'true'"
+                t-on-click="this.onClick">
+            <i class="oi oi-fw" t-att-data-icon="this.isHidden ? 'chat_bubble' : 'forum'"/>
+        </button>
+    </t>
+
+</templates>

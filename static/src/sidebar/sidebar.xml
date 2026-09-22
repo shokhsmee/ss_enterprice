@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="ss_enterprice.Sidebar">
+        <aside class="o_ss_sidebar d-none d-lg-flex flex-column d-print-none"
+               t-att-class="{ 'o_ss_sidebar_collapsed': this.state.collapsed }"
+               t-on-mouseleave="this.scheduleFlyoutClose">
+
+            <!-- Logo -->
+            <div class="o_ss_sidebar_brand d-flex align-items-center">
+                <a href="/odoo" class="o_ss_sidebar_logo d-flex align-items-center text-decoration-none"
+                   t-att-title="this.companyName">
+                    <!-- The image stays mounted even when the initials are shown, so
+                         its ratio is known as soon as it has loaded once. -->
+                    <img t-if="this.logoUrl" t-ref="this.logoRef"
+                         t-att-src="this.logoUrl" t-att-alt="this.companyName"
+                         t-att-class="{ 'd-none': this.showInitials }"
+                         t-on-load="this.onLogoLoad"/>
+                    <span t-if="this.showInitials" class="o_ss_sidebar_logo_initials"
+                          t-out="this.companyInitials"/>
+                </a>
+                <button class="o_ss_sidebar_collapse btn btn-link p-1"
+                        t-on-click="this.toggleCollapsed"
+                        t-att-title="this.collapseLabel"
+                        t-att-aria-label="this.collapseLabel">
+                    <i class="oi oi-fw"
+                       t-att-data-icon="this.state.collapsed ? 'left_panel_open' : 'left_panel_close'"/>
+                </button>
+            </div>
+
+            <div class="o_ss_sidebar_body flex-grow-1 overflow-auto">
+
+                <!-- Pinned menus -->
+                <section t-if="this.pinnedMenus.length and !this.state.collapsed"
+                         class="o_ss_sidebar_section o_ss_sidebar_pinned">
+                    <div class="o_ss_sidebar_section_title">Pinned</div>
+                    <ul class="list-unstyled mb-0">
+                        <li t-foreach="this.pinnedMenus" t-as="menu" t-key="menu.id"
+                            class="o_ss_sidebar_row">
+                            <a class="o_ss_sidebar_entry"
+                               t-att-class="{ 'o_ss_sidebar_entry_active': this.isActiveMenu(menu) }"
+                               t-att-href="this.getMenuItemHref(menu)"
+                               t-att-title="menu.name"
+                               t-att-data-menu-xmlid="menu.xmlid"
+                               t-on-click.prevent="() => this.onMenuClick(menu)"
+                               t-out="menu.name"/>
+                            <button class="o_ss_sidebar_pin o_ss_sidebar_pin_on"
+                                    title="Unpin"
+                                    t-on-click.stop.prevent="() => this.togglePin(menu.id)">
+                                <i class="oi oi-fw" data-icon="push_pin"/>
+                            </button>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Current app and its menus -->
+                <section t-if="this.currentApp" class="o_ss_sidebar_section">
+                    <a class="o_ss_sidebar_app o_ss_sidebar_app_current"
+                       t-att-href="this.getMenuItemHref(this.currentApp)"
+                       t-att-title="this.currentApp.name"
+                       t-att-data-menu-xmlid="this.currentApp.xmlid"
+                       t-on-click.prevent="() => this.onMenuClick(this.currentApp)"
+                       t-on-mouseenter="(ev) => this.onAppEnter(this.currentApp, ev)">
+                        <t t-call="ss_enterprice.Sidebar.AppIcon" app="this.currentApp"/>
+                        <span class="o_ss_sidebar_label" t-out="this.currentApp.name"/>
+                    </a>
+
+                    <ul t-if="!this.state.collapsed and this.currentAppSections.length"
+                        class="o_ss_sidebar_menu list-unstyled mb-0">
+                        <t t-foreach="this.currentAppSections" t-as="section" t-key="section.id">
+                            <t t-call="ss_enterprice.Sidebar.MenuEntry" section="section" depth="0"/>
+                        </t>
+                    </ul>
+                </section>
+
+                <!-- Other apps -->
+                <section t-if="this.otherApps.length" class="o_ss_sidebar_section">
+                    <div t-if="!this.state.collapsed" class="o_ss_sidebar_section_title">Apps</div>
+                    <t t-foreach="this.otherApps" t-as="app" t-key="app.id">
+                        <a class="o_ss_sidebar_app"
+                           t-att-href="this.getMenuItemHref(app)"
+                           t-att-title="app.name"
+                           t-att-data-menu-xmlid="app.xmlid"
+                           t-on-click.prevent="() => this.onMenuClick(app)"
+                           t-on-mouseenter="(ev) => this.onAppEnter(app, ev)">
+                            <t t-call="ss_enterprice.Sidebar.AppIcon" app="app"/>
+                            <span class="o_ss_sidebar_label" t-out="app.name"/>
+                        </a>
+                    </t>
+                </section>
+
+            </div>
+
+            <!-- Drag the right edge to resize; double-click to reset. -->
+            <div t-if="!this.state.collapsed" class="o_ss_sidebar_resizer"
+                 role="separator" aria-orientation="vertical"
+                 title="Drag to resize, double-click to reset"
+                 t-on-pointerdown="this.onResizeStart"
+                 t-on-dblclick="this.onResizeReset"/>
+
+            <!-- Flyout for the collapsed rail. Portalled out because the panel
+                 itself clips its overflow. -->
+            <t t-if="this.state.collapsed and this.state.flyout" t-custom-portal="'body'">
+                <div class="o_ss_sidebar_flyout d-print-none"
+                     t-attf-style="--ss-sidebar-flyout-top: {{ this.state.flyout.top }}px;"
+                     t-on-mouseenter="this.keepFlyoutOpen"
+                     t-on-mouseleave="this.scheduleFlyoutClose">
+                    <a class="o_ss_sidebar_flyout_title"
+                       t-att-href="this.getMenuItemHref(this.state.flyout.app)"
+                       t-on-click.prevent="() => this.onMenuClick(this.state.flyout.app)"
+                       t-out="this.state.flyout.app.name"/>
+                    <ul t-if="this.flyoutSections.length" class="list-unstyled mb-0">
+                        <t t-foreach="this.flyoutSections" t-as="section" t-key="section.id">
+                            <t t-call="ss_enterprice.Sidebar.FlyoutEntry" section="section" depth="0"/>
+                        </t>
+                    </ul>
+                </div>
+            </t>
+        </aside>
+    </t>
+
+    <!-- App icon: either the uploaded picture or the font icon with its color. -->
+    <t t-name="ss_enterprice.Sidebar.AppIcon">
+        <t t-set="icon" t-value="this.appIcon(app)"/>
+        <span class="o_ss_sidebar_app_icon d-flex align-items-center justify-content-center flex-shrink-0">
+            <img t-if="icon.type == 'image'" t-att-src="icon.src" t-att-alt="app.name"/>
+            <i t-elif="icon.type == 'font'" class="oi" t-att-data-icon="icon.icon"
+               t-att-style="icon.color ? 'color: ' + icon.color : ''"/>
+            <i t-else="" class="oi" data-icon="widgets"/>
+        </span>
+    </t>
+
+    <!-- One menu entry; recurses on its children. -->
+    <t t-name="ss_enterprice.Sidebar.MenuEntry">
+        <li t-if="!section.childrenTree.length" class="o_ss_sidebar_row">
+            <a class="o_ss_sidebar_entry"
+               t-att-class="{ 'o_ss_sidebar_entry_active': this.isActiveMenu(section) }"
+               t-att-style="'--ss-sidebar-depth: ' + depth"
+               t-att-href="this.getMenuItemHref(section)"
+               t-att-data-menu-xmlid="section.xmlid"
+               t-on-click.prevent="() => this.onMenuClick(section)"
+               t-out="section.name"/>
+            <button class="o_ss_sidebar_pin"
+                    t-att-class="{ 'o_ss_sidebar_pin_on': this.isPinned(section.id) }"
+                    t-att-title="this.pinLabel(section.id)"
+                    t-on-click.stop.prevent="() => this.togglePin(section.id)">
+                <i class="oi oi-fw" data-icon="push_pin"/>
+            </button>
+        </li>
+        <li t-else="">
+            <button class="o_ss_sidebar_entry o_ss_sidebar_entry_group"
+                    t-att-style="'--ss-sidebar-depth: ' + depth"
+                    t-att-data-menu-xmlid="section.xmlid"
+                    t-on-click="() => this.toggleGroup(section.id)">
+                <i class="oi oi-fw o_ss_sidebar_caret"
+                   t-att-data-icon="this.isGroupOpen(section.id) ? 'keyboard_arrow_down' : 'chevron_forward'"/>
+                <span t-out="section.name"/>
+            </button>
+            <ul t-if="this.isGroupOpen(section.id)" class="list-unstyled mb-0">
+                <t t-foreach="section.childrenTree" t-as="child" t-key="child.id">
+                    <t t-call="ss_enterprice.Sidebar.MenuEntry" section="child" depth="depth + 1"/>
+                </t>
+            </ul>
+        </li>
+    </t>
+
+    <!-- Same tree, but always unfolded: the flyout is transient. -->
+    <t t-name="ss_enterprice.Sidebar.FlyoutEntry">
+        <li t-if="!section.childrenTree.length">
+            <a class="o_ss_sidebar_entry"
+               t-att-class="{ 'o_ss_sidebar_entry_active': this.isActiveMenu(section) }"
+               t-att-style="'--ss-sidebar-depth: ' + depth"
+               t-att-href="this.getMenuItemHref(section)"
+               t-att-data-menu-xmlid="section.xmlid"
+               t-on-click.prevent="() => this.onMenuClick(section)"
+               t-out="section.name"/>
+        </li>
+        <li t-else="">
+            <div class="o_ss_sidebar_flyout_group"
+                 t-att-style="'--ss-sidebar-depth: ' + depth"
+                 t-out="section.name"/>
+            <ul class="list-unstyled mb-0">
+                <t t-foreach="section.childrenTree" t-as="child" t-key="child.id">
+                    <t t-call="ss_enterprice.Sidebar.FlyoutEntry" section="child" depth="depth + 1"/>
+                </t>
+            </ul>
+        </li>
+    </t>
+
+</templates>
