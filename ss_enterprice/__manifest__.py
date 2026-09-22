@@ -18,7 +18,7 @@ switched off.
     'author': "shokhsmee",
     'maintainer': "shokhsmee",
     'website': "https://github.com/shokhsmee/ss_enterprice",
-    'support': "s.obruyev@futurevision.ee",
+    'support': "shohjahonobruyev3@gmail.com",
 
     'depends': ['web', 'mail'],
     'data': [
