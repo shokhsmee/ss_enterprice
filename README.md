@@ -90,7 +90,7 @@ LGPL-3. See [LICENSE](LICENSE).
 
 ## Support
 
-s.obruyev@futurevision.ee
+shohjahonobruyev3@gmail.com
 
 ---
 
