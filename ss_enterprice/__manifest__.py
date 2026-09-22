@@ -12,7 +12,7 @@ and styling. Everything here is added next to them, and every part can be
 switched off.
     """,
     'version': '20.0.1.1.0',
-    'category': 'Productivity',
+    'category': 'Themes/Backend',
     'license': 'LGPL-3',
 
     'author': "shokhsmee",
