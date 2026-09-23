@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 20.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-22 16:58+0000\n"
-"PO-Revision-Date: 2026-09-22 16:58+0000\n"
+"POT-Creation-Date: 2026-09-23 11:18+0000\n"
+"PO-Revision-Date: 2026-09-23 11:18+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,6 +26,21 @@ msgid ""
 "design: the navbar, the views and the login card keep their standard markup\n"
 "and styling. Everything here is added next to them, and every part can be\n"
 "switched off.\n"
+"\n"
+"Split view\n"
+"    Open a record in a second pane instead of replacing the list. Side by\n"
+"    side or top and bottom, with a divider you can drag.\n"
+"\n"
+"Resizable chatter\n"
+"    Drag its edge to give the history the room it needs. In the split view it\n"
+"    becomes a panel of its own, where only the messages scroll.\n"
+"\n"
+"Left sidebar\n"
+"    The menus of the app you are in and a way to reach the others, with your\n"
+"    logo on top and the entries you pin.\n"
+"\n"
+"Login page\n"
+"    A background picture, your own wording and the card where you want it.\n"
 msgstr ""
 
 #. module: ss_enterprice
@@ -56,6 +71,18 @@ msgstr ""
 
 #. module: ss_enterprice
 #. odoo-javascript
+#: code:addons/ss_enterprice/static/src/split/list_controller_patch.xml:0
+msgid "Close the record"
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/split/split_toggle.js:0
+msgid "Close the split view"
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
 #: code:addons/ss_enterprice/static/src/sidebar/sidebar.js:0
 msgid "Collapse sidebar"
 msgstr ""
@@ -71,6 +98,12 @@ msgid "Config Settings"
 msgstr ""
 
 #. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/split/list_controller_patch.js:0
+msgid "Discard changes"
+msgstr ""
+
+#. module: ss_enterprice
 #: model:ir.model.fields,field_description:ss_enterprice.field_ir_http__display_name
 #: model:ir.model.fields,field_description:ss_enterprice.field_res_company__display_name
 #: model:ir.model.fields,field_description:ss_enterprice.field_res_config_settings__display_name
@@ -83,6 +116,12 @@ msgstr ""
 msgid ""
 "Displayed on top of the sidebar. The company logo is used when this is "
 "empty."
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/chatter/chatter_resizer.js:0
+msgid "Drag to resize the chatter, double-click to reset it"
 msgstr ""
 
 #. module: ss_enterprice
@@ -147,13 +186,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:ss_enterprice.field_res_config_settings__ss_sidebar_enabled
 #: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
 msgid "Left Sidebar"
-msgstr ""
-
-#. module: ss_enterprice
-#: model:ir.module.module,summary:base.module_ss_enterprice
-msgid ""
-"Left sidebar with pinned menus and your logo, a chatter toggle on form "
-"views, and a login page you can brand"
 msgstr ""
 
 #. module: ss_enterprice
@@ -226,6 +258,20 @@ msgid ""
 msgstr ""
 
 #. module: ss_enterprice
+#: model:ir.module.module,summary:base.module_ss_enterprice
+msgid ""
+"Open a record beside the list instead of on top of it, resize the chatter, a"
+" left sidebar with pinned menus and your logo, and a login page you can "
+"brand"
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/split/split_toggle.js:0
+msgid "Open records beside the list"
+msgstr ""
+
+#. module: ss_enterprice
 #: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_login_background
 #: model:ir.model.fields,help:ss_enterprice.field_res_config_settings__ss_login_background
 msgid "Picture used as the full-screen background of the login page."
@@ -287,6 +333,12 @@ msgid "SS Enterprise — Backend Sidebar, Chatter Toggle & Login Designer"
 msgstr ""
 
 #. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/split/list_controller_patch.xml:0
+msgid "Select a row to open it here"
+msgstr ""
+
+#. module: ss_enterprice
 #: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_login_tagline
 #: model:ir.model.fields,help:ss_enterprice.field_res_config_settings__ss_login_tagline
 #: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
@@ -312,6 +364,18 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/ss_enterprice/static/src/chatter/chatter_toggle.js:0
 msgid "Show chatter"
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/split/split_toggle.js:0
+msgid "Show the record below"
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/split/split_toggle.js:0
+msgid "Show the record beside"
 msgstr ""
 
 #. module: ss_enterprice
@@ -356,6 +420,14 @@ msgstr ""
 #. odoo-python
 #: code:addons/ss_enterprice/models/res_company.py:0
 msgid "The login overlay must be between 0 and 100."
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/split/list_controller_patch.js:0
+msgid ""
+"The record open next to the list has changes that cannot be saved, so you "
+"are being kept here. Fix them, or discard them to move on."
 msgstr ""
 
 #. module: ss_enterprice

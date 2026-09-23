@@ -10,6 +10,31 @@ them, and every part can be switched off.
 
 ## Features
 
+### Split view
+
+A button in the control panel of any list view. Turn it on and clicking a row
+fills a second pane instead of replacing the whole view, so the rows stay
+where they are.
+
+* **Side by side or top and bottom**, with a button to flip between them.
+* **Drag the divider** to share the space; double-click it to go back to the
+  middle.
+* Unsaved edits in the pane are saved before another row opens. When they
+  cannot be saved you are told why, and offered a way to discard them.
+* A close button empties the pane without leaving the list.
+* On, off, orientation and size are remembered per user.
+* Works on list views that ship their own template too, such as Purchase and
+  Reordering Rules.
+
+### Resizable chatter
+
+* **Drag its edge** to resize: the width when it sits beside the form, the
+  height when it sits under it in the split pane.
+* Double-click the edge to hand the sizing back to Odoo.
+* In the split pane the chatter is a panel of its own: only the messages
+  scroll, the composer and the form stay where they are.
+* The size is remembered per user.
+
 ### Left sidebar
 
 A collapsible panel next to the standard navbar, showing the menus of the app

@@ -1,8 +1,8 @@
 <section class="oe_container">
   <div class="oe_row oe_spaced">
     <h2 class="oe_slogan" style="color:#714b67;">SS Enterprise</h2>
-    <h3 class="oe_slogan">A sidebar, a chatter toggle and a login page you can brand</h3>
-    <p class="oe_mt32 text-center" style="max-width:760px;margin:0 auto;">
+    <h3 class="oe_slogan">A split list, a resizable chatter, a sidebar and a login page you can brand</h3>
+    <p class="oe_mt32 text-center" style="max-width:820px;margin:0 auto;">
       A light UI layer for the Odoo 20 backend. It does not replace Odoo's own
       design &mdash; the navbar, the views and the login card keep their standard
       markup and styling. Everything here is added next to them, and every part
@@ -13,12 +13,78 @@
 
 <section class="oe_container oe_dark">
   <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">Split view</h2>
+    <h3 class="oe_slogan" style="font-weight:300;">
+      Read a record without losing your place in the list
+    </h3>
+    <div class="oe_span12">
+      <ul style="line-height:2;columns:2;-webkit-columns:2;-moz-columns:2;">
+        <li>One button in the control panel of any list view.</li>
+        <li><b>The rows stay put.</b> Clicking one fills a second pane
+            instead of replacing the whole view.</li>
+        <li><b>Side by side or top and bottom</b> &mdash; flip between the two
+            with the button next to it.</li>
+        <li><b>Drag the divider</b> to share the space as you like;
+            double-click it to go back to the middle.</li>
+        <li>Unsaved edits are saved before another row opens, and you are
+            told about it when they cannot be.</li>
+        <li>On, off, orientation and size are remembered per user.</li>
+      </ul>
+    </div>
+    <div class="oe_span12 oe_mt32">
+      <img src="split.png" class="oe_picture oe_screenshot" style="width:100%;max-width:100%;"
+           alt="A customer list beside the record that is open"/>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <h3 class="oe_slogan" style="font-weight:300;">
+      The same list, stacked instead
+    </h3>
+    <div class="oe_span12">
+      <img src="split_horizontal.png" class="oe_picture oe_screenshot" style="width:100%;max-width:100%;"
+           alt="The list on top and the record underneath"/>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container oe_dark">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan">Resizable chatter</h2>
+    <h3 class="oe_slogan" style="font-weight:300;">
+      As much room for the history as you actually need
+    </h3>
+    <div class="oe_span12">
+      <ul style="line-height:2;columns:2;-webkit-columns:2;-moz-columns:2;">
+        <li><b>Drag its edge</b> to resize: the width when it sits beside the
+            form, the height when it sits under it.</li>
+        <li>Double-click the edge to hand the sizing back to Odoo.</li>
+        <li>In the split view the chatter becomes a <b>panel of its own</b>:
+            only the messages scroll, the composer stays put.</li>
+        <li>The form keeps its own scroll, so neither one drags the other
+            around.</li>
+        <li>A toggle hides the chatter entirely when the record needs the
+            full width.</li>
+        <li>The size is remembered per user.</li>
+      </ul>
+    </div>
+    <div class="oe_span12 oe_mt32">
+      <img src="chatter_resize.png" class="oe_picture oe_screenshot" style="width:100%;max-width:100%;"
+           alt="A form with the chatter widened beside it"/>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
     <h2 class="oe_slogan">Left sidebar</h2>
     <h3 class="oe_slogan" style="font-weight:300;">
       The menus of the app you are in, and a way to reach the others
     </h3>
-    <div class="oe_span6">
-      <ul style="line-height:2;">
+    <div class="oe_span12">
+      <ul style="line-height:2;columns:2;-webkit-columns:2;-moz-columns:2;">
         <li><b>Your logo on top</b> &mdash; falls back to the company logo.</li>
         <li><b>Pinned menus.</b> Pin any entry; it gets its own section at the
             top. Pins are per user and follow them to any browser.</li>
@@ -30,23 +96,21 @@
         <li>Hidden below 1024&nbsp;px, where Odoo's burger menu takes over.</li>
       </ul>
     </div>
-    <div class="oe_span6">
-      <img src="sidebar.png" class="oe_picture oe_screenshot" alt="Sidebar with pinned menus"/>
+    <div class="oe_span12 oe_mt32">
+      <img src="sidebar.png" class="oe_picture oe_screenshot" style="width:100%;max-width:100%;"
+           alt="Sidebar with pinned menus"/>
     </div>
   </div>
 </section>
 
-<section class="oe_container">
+<section class="oe_container oe_dark">
   <div class="oe_row oe_spaced">
     <h2 class="oe_slogan">Chatter toggle</h2>
     <h3 class="oe_slogan" style="font-weight:300;">
       Give the form the full width when you do not need the chatter
     </h3>
-    <div class="oe_span6">
-      <img src="chatter.png" class="oe_picture oe_screenshot" alt="Chatter toggle in the control panel"/>
-    </div>
-    <div class="oe_span6">
-      <ul style="line-height:2;">
+    <div class="oe_span12">
+      <ul style="line-height:2;columns:2;-webkit-columns:2;-moz-columns:2;">
         <li>One button in the control panel of every form that has a chatter.</li>
         <li>The sheet reclaims the space &mdash; useful on wide records such as
             sales orders and invoices.</li>
@@ -55,17 +119,21 @@
             hidden.</li>
       </ul>
     </div>
+    <div class="oe_span12 oe_mt32">
+      <img src="chatter.png" class="oe_picture oe_screenshot" style="width:100%;max-width:100%;"
+           alt="Chatter toggle in the control panel"/>
+    </div>
   </div>
 </section>
 
-<section class="oe_container oe_dark">
+<section class="oe_container">
   <div class="oe_row oe_spaced">
     <h2 class="oe_slogan">Login page</h2>
     <h3 class="oe_slogan" style="font-weight:300;">
       Your picture, your words, your layout
     </h3>
-    <div class="oe_span6">
-      <ul style="line-height:2;">
+    <div class="oe_span12">
+      <ul style="line-height:2;columns:2;-webkit-columns:2;-moz-columns:2;">
         <li>A full-screen <b>background picture</b>, with an adjustable dark
             overlay so the form stays readable on any image.</li>
         <li>The card sits <b>left, centre or right</b>.</li>
@@ -74,25 +142,27 @@
         <li>An option to hide the <b>"Manage Databases"</b> link.</li>
       </ul>
     </div>
-    <div class="oe_span6">
-      <img src="login.png" class="oe_picture oe_screenshot" alt="Branded login page"/>
+    <div class="oe_span12 oe_mt32">
+      <img src="login.png" class="oe_picture oe_screenshot" style="width:100%;max-width:100%;"
+           alt="Branded login page"/>
     </div>
   </div>
 </section>
 
-<section class="oe_container">
+<section class="oe_container oe_dark">
   <div class="oe_row oe_spaced">
     <h2 class="oe_slogan">Everything in one place</h2>
     <h3 class="oe_slogan" style="font-weight:300;">
       Settings &rarr; SS Enterprise, per company
     </h3>
     <div class="oe_span12">
-      <img src="settings.png" class="oe_picture oe_screenshot" alt="Settings page"/>
+      <img src="settings.png" class="oe_picture oe_screenshot" style="width:100%;max-width:100%;"
+           alt="Settings page"/>
     </div>
   </div>
 </section>
 
-<section class="oe_container oe_dark">
+<section class="oe_container">
   <div class="oe_row oe_spaced">
     <h2 class="oe_slogan">Good to know</h2>
     <div class="oe_span6">
@@ -100,6 +170,8 @@
       <ul style="line-height:2;">
         <li>Odoo <b>20.0</b>, Community and Enterprise.</li>
         <li>Depends on <code>web</code> and <code>mail</code> only.</li>
+        <li>The split view also reaches list views that ship their own
+            template, such as Purchase and Reordering Rules.</li>
         <li>Follows the light and dark colour schemes: the panel is built from
             Odoo's own theme variables.</li>
       </ul>
@@ -117,7 +189,7 @@
   </div>
 </section>
 
-<section class="oe_container">
+<section class="oe_container oe_dark">
   <div class="oe_row oe_spaced text-center">
     <h3 class="oe_slogan">Support</h3>
     <p><a href="mailto:shohjahonobruyev3@gmail.com">shohjahonobruyev3@gmail.com</a></p>

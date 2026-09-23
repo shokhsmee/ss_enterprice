@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 20.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-22 16:58+0000\n"
+"POT-Creation-Date: 2026-09-23 11:18+0000\n"
 "PO-Revision-Date: 2026-09-22 16:58+0000\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
@@ -14,7 +14,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #. module: ss_enterprice
 #: model:ir.module.module,description:base.module_ss_enterprice
@@ -27,6 +29,23 @@ msgid ""
 "design: the navbar, the views and the login card keep their standard markup\n"
 "and styling. Everything here is added next to them, and every part can be\n"
 "switched off.\n"
+"\n"
+"Split view\n"
+"    Open a record in a second pane instead of replacing the list. Side by\n"
+"    side or top and bottom, with a divider you can drag.\n"
+"\n"
+"Resizable chatter\n"
+"    Drag its edge to give the history the room it needs. In the split view "
+"it\n"
+"    becomes a panel of its own, where only the messages scroll.\n"
+"\n"
+"Left sidebar\n"
+"    The menus of the app you are in and a way to reach the others, with "
+"your\n"
+"    logo on top and the entries you pin.\n"
+"\n"
+"Login page\n"
+"    A background picture, your own wording and the card where you want it.\n"
 msgstr ""
 "\n"
 "SS Enterprise\n"
@@ -36,6 +55,26 @@ msgstr ""
 "дизайн Odoo: панель навигации, представления и карточка входа сохраняют\n"
 "свою стандартную разметку и стили. Всё, что добавляет модуль, находится\n"
 "рядом с ними, и любую часть можно отключить.\n"
+"\n"
+"Разделённый вид\n"
+"    Открывайте запись во второй панели, а не вместо списка.\n"
+"    Рядом или снизу, с разделителем, который можно перетаскивать.\n"
+"\n"
+"Чат с изменяемым размером\n"
+"    Потяните за край, чтобы дать истории столько места, сколько нужно.\n"
+"    В разделённом виде это отдельная панель, где прокручиваются только сообщения.\n"
+"\n"
+"Боковая панель\n"
+"    Меню текущего приложения и доступ к остальным, с вашим логотипом\n"
+"    сверху и закреплёнными пунктами.\n"
+"\n"
+"Страница входа\n"
+"    Фоновое изображение, ваш текст и карточка там, где нужно.\n"
+
+#. module: ss_enterprice
+#: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
+msgid "<span class=\"text-muted ps-1\">%</span>"
+msgstr ""
 
 #. module: ss_enterprice
 #. odoo-javascript
@@ -60,14 +99,59 @@ msgstr "По центру"
 
 #. module: ss_enterprice
 #. odoo-javascript
+#: code:addons/ss_enterprice/static/src/split/list_controller_patch.xml:0
+msgid "Close the record"
+msgstr "Закрыть запись"
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/split/split_toggle.js:0
+msgid "Close the split view"
+msgstr "Закрыть разделённый вид"
+
+#. module: ss_enterprice
+#. odoo-javascript
 #: code:addons/ss_enterprice/static/src/sidebar/sidebar.js:0
 msgid "Collapse sidebar"
 msgstr "Свернуть боковую панель"
 
 #. module: ss_enterprice
+#: model:ir.model,name:ss_enterprice.model_res_company
+msgid "Company"
+msgstr ""
+
+#. module: ss_enterprice
+#: model:ir.model,name:ss_enterprice.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/split/list_controller_patch.js:0
+msgid "Discard changes"
+msgstr "Отменить изменения"
+
+#. module: ss_enterprice
+#: model:ir.model.fields,field_description:ss_enterprice.field_ir_http__display_name
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_company__display_name
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_users_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ss_enterprice
 #: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
-msgid "Displayed on top of the sidebar. The company logo is used when this is empty."
-msgstr "Отображается вверху боковой панели. Если поле пустое, используется логотип компании."
+msgid ""
+"Displayed on top of the sidebar. The company logo is used when this is empty."
+msgstr ""
+"Отображается вверху боковой панели. Если поле пустое, используется логотип "
+"компании."
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/chatter/chatter_resizer.js:0
+msgid "Drag to resize the chatter, double-click to reset it"
+msgstr "Потяните, чтобы изменить размер чата, двойной щелчок — сброс"
 
 #. module: ss_enterprice
 #. odoo-javascript
@@ -92,6 +176,11 @@ msgid "Full-screen background of the login page."
 msgstr "Полноэкранный фон страницы входа."
 
 #. module: ss_enterprice
+#: model:ir.model,name:ss_enterprice.model_ir_http
+msgid "HTTP Routing"
+msgstr ""
+
+#. module: ss_enterprice
 #: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
 msgid "Hide Database Manager"
 msgstr "Скрыть менеджер баз данных"
@@ -109,6 +198,14 @@ msgid "Hide chatter"
 msgstr "Скрыть чаттер"
 
 #. module: ss_enterprice
+#: model:ir.model.fields,field_description:ss_enterprice.field_ir_http__id
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_company__id
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_config_settings__id
+#: model:ir.model.fields,field_description:ss_enterprice.field_res_users_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: ss_enterprice
 #: model:ir.model.fields.selection,name:ss_enterprice.selection__res_company__ss_login_position__left
 msgid "Left"
 msgstr "Слева"
@@ -119,11 +216,6 @@ msgstr "Слева"
 #: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
 msgid "Left Sidebar"
 msgstr "Левая боковая панель"
-
-#. module: ss_enterprice
-#: model:ir.module.module,summary:base.module_ss_enterprice
-msgid "Left sidebar with pinned menus and your logo, a chatter toggle on form views, and a login page you can brand"
-msgstr "Левая боковая панель с закреплёнными меню и вашим логотипом, переключатель чаттера в формах и страница входа с вашим оформлением"
 
 #. module: ss_enterprice
 #: model:ir.model.fields,field_description:ss_enterprice.field_res_company__ss_login_background
@@ -164,13 +256,19 @@ msgstr "Подпись на странице входа"
 #. module: ss_enterprice
 #: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_sidebar_logo
 #: model:ir.model.fields,help:ss_enterprice.field_res_config_settings__ss_sidebar_logo
-msgid "Logo displayed at the top of the sidebar. Falls back to the company logo when empty."
-msgstr "Логотип вверху боковой панели. Если поле пустое, используется логотип компании."
+msgid ""
+"Logo displayed at the top of the sidebar. Falls back to the company logo "
+"when empty."
+msgstr ""
+"Логотип вверху боковой панели. Если поле пустое, используется логотип "
+"компании."
 
 #. module: ss_enterprice
 #: model:ir.model.fields,help:ss_enterprice.field_res_users_settings__ss_pinned_menus
 msgid "Menus pinned to the top of the SS Enterprise sidebar, in pin order."
-msgstr "Меню, закреплённые вверху боковой панели SS Enterprise, в порядке закрепления."
+msgstr ""
+"Меню, закреплённые вверху боковой панели SS Enterprise, в порядке "
+"закрепления."
 
 #. module: ss_enterprice
 #: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
@@ -180,13 +278,34 @@ msgstr "Примечание под карточкой"
 #. module: ss_enterprice
 #: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_login_overlay
 #: model:ir.model.fields,help:ss_enterprice.field_res_config_settings__ss_login_overlay
-msgid "Opacity (0-100) of the dark veil drawn over the background picture, to keep the login form readable."
-msgstr "Непрозрачность (0–100) затемнения поверх фонового изображения, чтобы форма входа оставалась читаемой."
+msgid ""
+"Opacity (0-100) of the dark veil drawn over the background picture, to keep "
+"the login form readable."
+msgstr ""
+"Непрозрачность (0–100) затемнения поверх фонового изображения, чтобы форма "
+"входа оставалась читаемой."
 
 #. module: ss_enterprice
 #: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
-msgid "Opacity (0-100) of the dark veil drawn over the picture, to keep the login form readable."
-msgstr "Непрозрачность (0–100) затемнения поверх изображения, чтобы форма входа оставалась читаемой."
+msgid ""
+"Opacity (0-100) of the dark veil drawn over the picture, to keep the login "
+"form readable."
+msgstr ""
+"Непрозрачность (0–100) затемнения поверх изображения, чтобы форма входа "
+"оставалась читаемой."
+
+#. module: ss_enterprice
+#: model:ir.module.module,summary:base.module_ss_enterprice
+msgid ""
+"Open a record beside the list instead of on top of it, resize the chatter, a "
+"left sidebar with pinned menus and your logo, and a login page you can brand"
+msgstr "Открывайте запись рядом со списком, а не поверх него, меняйте размер чата, боковая панель с закреплёнными меню и вашим логотипом и страница входа в вашем стиле"
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/split/split_toggle.js:0
+msgid "Open records beside the list"
+msgstr "Открывать записи рядом со списком"
 
 #. module: ss_enterprice
 #: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_login_background
@@ -213,14 +332,24 @@ msgstr "Закреплённые меню"
 
 #. module: ss_enterprice
 #: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
-msgid "Plain text shown below the login card, e.g. a support address. HTML is not accepted: the page is public."
-msgstr "Обычный текст под карточкой входа, например адрес поддержки. HTML не принимается: страница общедоступна."
+msgid ""
+"Plain text shown below the login card, e.g. a support address. HTML is not "
+"accepted: the page is public."
+msgstr ""
+"Обычный текст под карточкой входа, например адрес поддержки. HTML не "
+"принимается: страница общедоступна."
 
 #. module: ss_enterprice
 #: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_login_note
 #: model:ir.model.fields,help:ss_enterprice.field_res_config_settings__ss_login_note
-msgid "Plain text shown under the login card, e.g. a support address. Rendered escaped: the login page is served before anyone is authenticated, so no HTML is accepted here."
-msgstr "Обычный текст под карточкой входа, например адрес поддержки. Выводится экранированным: страница входа отдаётся до аутентификации, поэтому HTML здесь не принимается."
+msgid ""
+"Plain text shown under the login card, e.g. a support address. Rendered "
+"escaped: the login page is served before anyone is authenticated, so no HTML "
+"is accepted here."
+msgstr ""
+"Обычный текст под карточкой входа, например адрес поддержки. Выводится "
+"экранированным: страница входа отдаётся до аутентификации, поэтому HTML "
+"здесь не принимается."
 
 #. module: ss_enterprice
 #: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_login_hide_db_manager
@@ -242,7 +371,15 @@ msgstr "SS Enterprise"
 #. module: ss_enterprice
 #: model:ir.module.module,shortdesc:base.module_ss_enterprice
 msgid "SS Enterprise — Backend Sidebar, Chatter Toggle & Login Designer"
-msgstr "SS Enterprise — боковая панель, переключатель чаттера и оформление страницы входа"
+msgstr ""
+"SS Enterprise — боковая панель, переключатель чаттера и оформление страницы "
+"входа"
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/split/list_controller_patch.xml:0
+msgid "Select a row to open it here"
+msgstr "Выберите строку, чтобы открыть её здесь"
 
 #. module: ss_enterprice
 #: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_login_tagline
@@ -254,19 +391,39 @@ msgstr "Короткая строка внутри карточки входа, 
 #. module: ss_enterprice
 #: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_sidebar_enabled
 #: model:ir.model.fields,help:ss_enterprice.field_res_config_settings__ss_sidebar_enabled
-msgid "Show a collapsible sidebar on the left of the backend, with the menus of the current app and the list of the other apps."
-msgstr "Показывать слева сворачиваемую боковую панель с меню текущего приложения и списком других приложений."
+msgid ""
+"Show a collapsible sidebar on the left of the backend, with the menus of the "
+"current app and the list of the other apps."
+msgstr ""
+"Показывать слева сворачиваемую боковую панель с меню текущего приложения и "
+"списком других приложений."
 
 #. module: ss_enterprice
 #: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
-msgid "Show a sidebar on the left with the menus of the current app and the other apps."
-msgstr "Показывать слева боковую панель с меню текущего приложения и списком других приложений."
+msgid ""
+"Show a sidebar on the left with the menus of the current app and the other "
+"apps."
+msgstr ""
+"Показывать слева боковую панель с меню текущего приложения и списком других "
+"приложений."
 
 #. module: ss_enterprice
 #. odoo-javascript
 #: code:addons/ss_enterprice/static/src/chatter/chatter_toggle.js:0
 msgid "Show chatter"
 msgstr "Показать чаттер"
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/split/split_toggle.js:0
+msgid "Show the record below"
+msgstr "Показывать запись снизу"
+
+#. module: ss_enterprice
+#. odoo-javascript
+#: code:addons/ss_enterprice/static/src/split/split_toggle.js:0
+msgid "Show the record beside"
+msgstr "Показывать запись сбоку"
 
 #. module: ss_enterprice
 #: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
@@ -289,13 +446,21 @@ msgstr "Логотип боковой панели"
 #. module: ss_enterprice
 #: model:ir.model.fields,help:ss_enterprice.field_res_company__ss_sidebar_default_open
 #: model:ir.model.fields,help:ss_enterprice.field_res_config_settings__ss_sidebar_default_open
-msgid "State of the sidebar the first time a user loads the backend. Afterwards each user keeps their own choice."
-msgstr "Состояние боковой панели при первой загрузке интерфейса. Далее у каждого пользователя сохраняется свой выбор."
+msgid ""
+"State of the sidebar the first time a user loads the backend. Afterwards "
+"each user keeps their own choice."
+msgstr ""
+"Состояние боковой панели при первой загрузке интерфейса. Далее у каждого "
+"пользователя сохраняется свой выбор."
 
 #. module: ss_enterprice
 #: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
-msgid "State of the sidebar the first time a user opens the backend. Each user then keeps their own choice."
-msgstr "Состояние боковой панели при первом открытии интерфейса. Далее у каждого пользователя сохраняется свой выбор."
+msgid ""
+"State of the sidebar the first time a user opens the backend. Each user then "
+"keeps their own choice."
+msgstr ""
+"Состояние боковой панели при первом открытии интерфейса. Далее у каждого "
+"пользователя сохраняется свой выбор."
 
 #. module: ss_enterprice
 #: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
@@ -310,10 +475,23 @@ msgstr "Затемнение фона должно быть в диапазон�
 
 #. module: ss_enterprice
 #. odoo-javascript
+#: code:addons/ss_enterprice/static/src/split/list_controller_patch.js:0
+msgid ""
+"The record open next to the list has changes that cannot be saved, so you "
+"are being kept here. Fix them, or discard them to move on."
+msgstr "В записи, открытой рядом со списком, есть изменения, которые не удаётся сохранить, поэтому вы остаётесь здесь. Исправьте их или отмените, чтобы продолжить."
+
+#. module: ss_enterprice
+#. odoo-javascript
 #: code:addons/ss_enterprice/static/src/sidebar/sidebar.js:0
 #: code:addons/ss_enterprice/static/src/sidebar/sidebar.xml:0
 msgid "Unpin"
 msgstr "Открепить"
+
+#. module: ss_enterprice
+#: model:ir.model,name:ss_enterprice.model_res_users_settings
+msgid "User Settings"
+msgstr ""
 
 #. module: ss_enterprice
 #: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
@@ -329,3 +507,31 @@ msgstr "например: Нужна помощь? support@example.com"
 #: model_terms:ir.ui.view,arch_db:ss_enterprice.res_config_settings_view_form
 msgid "e.g. Welcome back"
 msgstr "например: С возвращением"
+
+#~ msgid ""
+#~ "\n"
+#~ "SS Enterprise\n"
+#~ "=============\n"
+#~ "\n"
+#~ "A light UI layer for the Odoo 20 backend. It does not replace Odoo's own\n"
+#~ "design: the navbar, the views and the login card keep their standard "
+#~ "markup\n"
+#~ "and styling. Everything here is added next to them, and every part can "
+#~ "be\n"
+#~ "switched off.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "SS Enterprise\n"
+#~ "=============\n"
+#~ "\n"
+#~ "Лёгкий слой интерфейса для бэкенда Odoo 20. Он не заменяет собственный\n"
+#~ "дизайн Odoo: панель навигации, представления и карточка входа сохраняют\n"
+#~ "свою стандартную разметку и стили. Всё, что добавляет модуль, находится\n"
+#~ "рядом с ними, и любую часть можно отключить.\n"
+
+#~ msgid ""
+#~ "Left sidebar with pinned menus and your logo, a chatter toggle on form "
+#~ "views, and a login page you can brand"
+#~ msgstr ""
+#~ "Левая боковая панель с закреплёнными меню и вашим логотипом, "
+#~ "переключатель чаттера в формах и страница входа с вашим оформлением"
