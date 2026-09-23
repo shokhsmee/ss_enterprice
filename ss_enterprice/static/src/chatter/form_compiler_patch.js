@@ -10,6 +10,14 @@ patch(FormCompiler.prototype, {
         for (const hook of res.querySelectorAll(".o-mail-Form-chatter")) {
             const condition = hook.getAttribute("t-if") || "true";
             hook.setAttribute("t-if", `(${condition}) and !__comp__.ssChatterHidden()`);
+
+            // The dragged size is applied inline so it beats mail's own width
+            // rule without an `!important`, and disappears when it is reset.
+            hook.setAttribute("t-att-style", "__comp__.ssChatterStyle()");
+
+            const handle = res.ownerDocument.createElement("t");
+            handle.setAttribute("t-component", "__comp__.ssChatterResizer");
+            hook.prepend(handle);
         }
         return res;
     },

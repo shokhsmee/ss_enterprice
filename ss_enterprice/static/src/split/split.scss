@@ -1,0 +1,108 @@
+// Split list view: the rows keep their place and the record opens in a second
+// pane next to them instead of replacing the whole view.
+
+$ss-split-gutter-size: 5px !default;
+
+// The panes scroll on their own, so the content area must not scroll too.
+.o_content:has(> .o_ss_split) {
+    overflow: hidden;
+}
+
+.o_ss_split {
+    display: flex;
+    flex: 1 1 auto;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+
+    &.o_ss_split_horizontal {
+        flex-direction: column;
+    }
+
+    // While a gutter is dragged the pointer must not select text or be caught
+    // by anything inside the panes.
+    &.o_ss_split_dragging {
+        user-select: none;
+
+        .o_ss_split_list,
+        .o_ss_split_pane {
+            pointer-events: none;
+        }
+    }
+}
+
+.o_ss_split_list {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    overflow: auto;
+}
+
+.o_ss_split_pane {
+    position: relative;
+    flex: 0 0 auto;
+    min-width: 0;
+    min-height: 0;
+    overflow: auto;
+    background-color: var(--o-view-background-color, #fff);
+
+    // The form renders a full view controller; it has to fill the pane rather
+    // than the content area it would normally sit in.
+    > .o_view_controller {
+        height: 100%;
+    }
+}
+
+.o_ss_split_gutter {
+    flex: 0 0 $ss-split-gutter-size;
+    position: relative;
+    background-color: var(--border-color, #dee2e6);
+    background-clip: content-box;
+    touch-action: none;
+
+    &:hover,
+    .o_ss_split_dragging & {
+        background-color: var(--primary, #714b67);
+    }
+
+    // A thin visible line, with a comfortable grab area around it.
+    &::after {
+        content: "";
+        position: absolute;
+        inset: -2px;
+    }
+
+    .o_ss_split_vertical > & {
+        cursor: col-resize;
+        border-inline: 2px solid var(--o-view-background-color, #fff);
+    }
+
+    .o_ss_split_horizontal > & {
+        flex-basis: $ss-split-gutter-size;
+        cursor: row-resize;
+        border-block: 2px solid var(--o-view-background-color, #fff);
+    }
+}
+
+.o_ss_split_placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+    text-align: center;
+    color: var(--o-gray-600, #6c757d);
+}
+
+// The split pane is desktop-only: on a phone the rows take the whole width.
+@include media-breakpoint-down(md) {
+    .o_ss_split {
+        display: block;
+    }
+
+    .o_ss_split_gutter,
+    .o_ss_split_pane {
+        display: none;
+    }
+}

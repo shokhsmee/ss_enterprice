@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="ss_enterprice.SplitToggle">
+        <button type="button"
+                name="ss_split_toggle"
+                class="btn btn-secondary o_ss_split_toggle d-print-none"
+                t-att-class="{ 'active': this.isActive }"
+                t-att-title="this.toggleLabel"
+                t-att-aria-pressed="this.isActive ? 'true' : 'false'"
+                t-on-click="this.onToggleClick">
+            <i class="oi oi-fw" data-icon="dock_to_right"/>
+        </button>
+        <button t-if="this.isActive"
+                type="button"
+                name="ss_split_orientation"
+                class="btn btn-secondary o_ss_split_orientation d-print-none"
+                t-att-title="this.orientationLabel"
+                t-on-click="this.onOrientationClick">
+            <i class="oi oi-fw" t-att-data-icon="this.isVertical ? 'swap_vert' : 'swap_horiz'"/>
+        </button>
+    </t>
+
+</templates>

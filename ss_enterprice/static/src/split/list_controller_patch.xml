@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-inherit="web.ListView" t-inherit-mode="extension">
+
+        <!-- The renderer moves inside the split wrapper below, which would
+             leave this `t-elif` without the `t-if` it continues. -->
+        <xpath expr="//t[@t-elif='this.model.couldNotLoadRootOffline']" position="replace">
+            <t t-if="!this.model.isReady() and this.model.couldNotLoadRootOffline">
+                <OfflineActionHelper/>
+            </t>
+        </xpath>
+
+        <xpath expr="//t[@t-set-slot='control-panel-navigation-additional']" position="inside">
+            <t t-if="this.ssSplitAvailable"
+               t-component="this.ssSplitToggle"
+               t-props="this.ssSplitToggleProps"/>
+            <button t-if="this.ssSplitActive and this.ssSplitState.resId"
+                    type="button"
+                    name="ss_split_close"
+                    class="btn btn-secondary o_ss_split_close d-print-none"
+                    title="Close the record"
+                    t-on-click="this.ssSplitCloseRecord">
+                <i class="oi oi-fw" data-icon="close"/>
+            </button>
+        </xpath>
+
+        <xpath expr="//t[@t-component='this.props.Renderer']" position="replace">
+            <div t-if="this.ssSplitActive" t-att-class="this.ssSplitWrapperClass">
+                <div class="o_ss_split_list">$0</div>
+                <div class="o_ss_split_gutter"
+                     role="separator"
+                     t-on-pointerdown="this.ssOnGutterPointerDown"
+                     t-on-dblclick="this.ssOnGutterDoubleClick"/>
+                <div class="o_ss_split_pane" t-att-style="this.ssSplitPaneStyle">
+                    <t t-if="this.ssSplitState.resId"
+                       t-component="this.ssSplitForm"
+                       t-key="this.ssSplitFormKey"
+                       t-props="this.ssSplitFormProps"/>
+                    <div t-else="" class="o_ss_split_placeholder">
+                        <span>Select a row to open it here</span>
+                    </div>
+                </div>
+            </div>
+            <t t-else="">$0</t>
+        </xpath>
+
+    </t>
+
+</templates>

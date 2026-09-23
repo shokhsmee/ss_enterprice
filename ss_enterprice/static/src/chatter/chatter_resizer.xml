@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="ss_enterprice.ChatterResizer">
+        <div class="o_ss_chatter_resizer"
+             role="separator"
+             t-ref="this.root"
+             t-att-title="this.label"
+             t-on-pointerdown="this.onPointerDown"
+             t-on-dblclick="this.onDoubleClick"/>
+    </t>
+
+</templates>

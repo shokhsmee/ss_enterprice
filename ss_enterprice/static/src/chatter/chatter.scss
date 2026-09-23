@@ -1,0 +1,94 @@
+// The chatter can be dragged to the size you want: its width when it sits
+// beside the form, its height when it sits under it in the split pane.
+
+$ss-chatter-handle: 6px !default;
+
+.o-mail-Form-chatter {
+    position: relative;
+}
+
+.o_ss_chatter_resizer {
+    position: absolute;
+    z-index: 2;
+    touch-action: none;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: transparent;
+        transition: background-color 120ms ease;
+    }
+
+    &:hover::after,
+    body.o_ss_chatter_resizing &::after {
+        background-color: var(--primary, #714b67);
+    }
+}
+
+.o-mail-Form-chatter.o-aside > .o_ss_chatter_resizer {
+    inset-block: 0;
+    inset-inline-start: 0;
+    width: $ss-chatter-handle;
+    cursor: col-resize;
+}
+
+.o-mail-Form-chatter:not(.o-aside) > .o_ss_chatter_resizer {
+    inset-inline: 0;
+    top: 0;
+    height: $ss-chatter-handle;
+    cursor: row-resize;
+}
+
+body.o_ss_chatter_resizing {
+    user-select: none;
+}
+
+// In the split pane the stacked chatter is a panel of its own: the sheet takes
+// whatever is left and scrolls, the chatter keeps the height it was given.
+// Without this the only way to reach the chatter is to scroll past the form.
+.o_ss_split_pane {
+    .o_content:has(> .o_form_renderer > .o-mail-Form-chatter:not(.o-aside)) {
+        overflow: hidden;
+    }
+
+    .o_form_renderer:has(> .o-mail-Form-chatter:not(.o-aside)) {
+        height: 100%;
+        min-height: 0;
+        flex-direction: column;
+        overflow: hidden;
+
+        > .o_form_sheet_bg {
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow: auto;
+        }
+
+        > .o-mail-Form-chatter {
+            flex: 0 0 auto;
+            min-height: 0;
+            overflow: hidden;
+            margin-top: 0;
+            padding-bottom: 0;
+
+            // A flex item keeps `min-height: auto`, so the thread refuses to
+            // shrink below its messages: it grows past the pinned height and
+            // its own `overflow: auto` never has anything to scroll. Releasing
+            // the whole chain is what gives the chatter its scrollbar.
+            .o-mail-Chatter,
+            .o-mail-Chatter-content,
+            .o-mail-Thread {
+                min-height: 0;
+            }
+
+            .o-mail-Chatter {
+                overflow: hidden;
+            }
+
+            // The topbar and composer stay put; only the messages move.
+            .o-mail-Thread {
+                overflow-y: auto;
+            }
+        }
+    }
+}

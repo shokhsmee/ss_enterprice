@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="ss_enterprice.SplitForm">
+        <View type="'form'"
+              resModel="this.props.resModel"
+              resId="this.props.resId"
+              context="this.props.context"
+              display="this.display"
+              noBreadcrumbs="true"
+              className="'o_ss_split_form_view'"
+              onSave="this.props.onSave"
+              __beforeLeave__="this.props.beforeLeave"/>
+    </t>
+
+</templates>
