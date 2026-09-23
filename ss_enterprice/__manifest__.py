@@ -38,7 +38,7 @@ Login page
 
     'author': "shokhsmee",
     'maintainer': "shokhsmee",
-    'website': "https://github.com/shokhsmee/ss_enterprice",
+    'website': "https://shokhsmee.uz",
     'support': "shohjahonobruyev3@gmail.com",
 
     'depends': ['web', 'mail'],
